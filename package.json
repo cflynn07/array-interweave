@@ -1,0 +1,19 @@
+{
+  "name": "array-interweave",
+  "version": "1.0.0",
+  "description": "Produce a new array from two source arrays with alternating values from each source array",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cflynn07/array-interweave.git"
+  },
+  "author": "Casey Flynn <cflynn.us@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cflynn07/array-interweave/issues"
+  },
+  "homepage": "https://github.com/cflynn07/array-interweave#readme"
+}
