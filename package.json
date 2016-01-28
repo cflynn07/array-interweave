@@ -4,7 +4,14 @@
   "description": "Produce a new array from two source arrays with alternating values from each source array",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src -d ./lib",
+    "lint": "npm run whitelist-generate-all; standard -v `cat ./whitelist-all.txt`; npm run whitelist-remove",
+    "prepublish": "npm run build",
+    "test": "npm run lint; npm run whitelist-generate-test; istanbul cover _mocha `cat ./whitelist-test.txt`; npm run whitelist-remove; istanbul check-coverage --statement 100 --branch 100 --function 100 --line 100",
+    "test-html-cov": "npm run whitelist-generate-test; istanbul cover _mocha `cat ./whitelist-test.txt`; npm run whitelist-remove; open -a 'Google Chrome' coverage/lcov-report/index.html",
+    "whitelist-generate-all": "find ./src -name '*.js' > ./whitelist-all.txt",
+    "whitelist-generate-test": "find ./src -name '*_test.js' > ./whitelist-test.txt",
+    "whitelist-remove": "rm ./whitelist*.txt"
   },
   "repository": {
     "type": "git",
@@ -16,6 +23,17 @@
     "url": "https://github.com/cflynn07/array-interweave/issues"
   },
   "homepage": "https://github.com/cflynn07/array-interweave#readme",
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  },
   "devDependencies": {
     "babel-cli": "^6.4.5",
     "babel-eslint": "^4.1.6",
