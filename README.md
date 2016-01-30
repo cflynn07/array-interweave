@@ -37,7 +37,7 @@ const mergedResult = interweave(sourceA, sourceB)
 
 Tests
 -----
-iUnit tests use Mocha, Unit.js, and Istanbul
+Unit tests use Mocha, Unit.js, and Istanbul
 ```bash
 $ npm run test
 $ npm run test-html-cov # Will open HTML coverage report in Google Chrome on OSX
